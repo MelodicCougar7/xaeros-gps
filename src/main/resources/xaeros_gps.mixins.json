@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.github.melodiccougar7.xaeros_gps.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "xaeros_gps.refmap.json",
+  "mixins": [
+
+  ],
+  "client": [
+    "WMKeybindDisabler",
+    "renderMessageScreenInvoker",
+    "WorldMapDisabler"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

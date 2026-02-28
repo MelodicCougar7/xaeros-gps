@@ -1,0 +1,17 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "xaeros_gps:item/gps_b_off"
+  },
+
+  "overrides": [
+    {
+      "predicate": { "mode": 1 },
+      "model": "xaeros_gps:item/gps_b_on"
+    },
+    {
+      "predicate": { "mode": 2 },
+      "model": "xaeros_gps:item/gps_b_off"
+    }
+  ]
+}
