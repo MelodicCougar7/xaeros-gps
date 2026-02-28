@@ -53,16 +53,14 @@ public class XaerosGPS {
 
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
-			event.enqueueWork(() -> {
-				ItemProperties.register(GPSItems.GPS.get(),
-						new ResourceLocation(XaerosGPS.MODID, ItemGPS.GPS_ON),
-						(stack, level, entity, seed) -> {
-							if (stack.getItem() instanceof ItemGPS gps) {
-								return (gps.isGPSOn(stack) && !gps.isOutOfEnergy(stack)) ? 1.0f : 0.0f;
-							}
-							return 0.0f;
-						});
-			});
+			event.enqueueWork(() -> ItemProperties.register(GPSItems.GPS.get(),
+					new ResourceLocation(XaerosGPS.MODID, ItemGPS.GPS_ON),
+					(stack, level, entity, seed) -> {
+						if (stack.getItem() instanceof ItemGPS gps) {
+							return (gps.isGPSOn(stack) && !gps.isOutOfEnergy(stack)) ? 1.0f : 0.0f;
+						}
+						return 0.0f;
+					}));
 		}
 
 		@SubscribeEvent

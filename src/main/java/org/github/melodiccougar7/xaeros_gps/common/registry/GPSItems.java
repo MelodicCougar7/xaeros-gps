@@ -21,6 +21,10 @@ public class GPSItems {
 	public static final RegistryObject<Item> BATTERY =
 			ITEMS.register("battery", () -> new ItemBattery(new Item.Properties().stacksTo(64), 1000, 100, 1000,
                     true));
+
+	public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS =
+			DeferredRegister.create(Registries.CREATIVE_MODE_TAB, XaerosGPS.MODID);
+
 	public static final RegistryObject<CreativeModeTab> GPS_TAB = CREATIVE_TABS.register("gps_tab",
 			() -> CreativeModeTab.builder()
 					.title(Component.translatable("itemGroup.xaeros_gps"))
@@ -34,6 +38,4 @@ public class GPSItems {
 						output.accept(GPSItems.BATTERY.get());
 					})
 					.build());
-	public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS =
-			DeferredRegister.create(Registries.CREATIVE_MODE_TAB, XaerosGPS.MODID);
 }

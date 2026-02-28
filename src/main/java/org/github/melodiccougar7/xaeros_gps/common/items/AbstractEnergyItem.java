@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 
+@SuppressWarnings({"unused", "removal"})
 public abstract class AbstractEnergyItem extends Item {
 
 	private final int capacity;
@@ -214,7 +215,7 @@ public abstract class AbstractEnergyItem extends Item {
 
 	@Override
 	public int getBarWidth(ItemStack stack) {
-		return Math.round(Item.MAX_BAR_WIDTH * getEnergy(stack) / getCapacity());
+		return Math.round((float) (Item.MAX_BAR_WIDTH * getEnergy(stack)) / getCapacity());
 	}
 
 	@Override

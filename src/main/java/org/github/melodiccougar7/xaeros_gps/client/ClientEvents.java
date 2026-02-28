@@ -29,12 +29,13 @@ public class ClientEvents {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@SubscribeEvent
 	public static void onScreenClosing(ScreenEvent.Closing event) {
 		Screen screen = event.getScreen();
-		if (GuiMap.class.isInstance(screen)) { // just because Xaero's lib is bundled we can't just do instanceof
+		if (GuiMap.class.isInstance(screen)) // just because Xaero's lib is bundled we can't just do instanceof
 			GPSNetwork.CHANNEL.sendToServer(new GPSTogglePacket(false));
-		}
+
 	}
 
 

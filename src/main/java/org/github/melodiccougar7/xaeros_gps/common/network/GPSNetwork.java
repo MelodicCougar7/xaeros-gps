@@ -5,6 +5,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.github.melodiccougar7.xaeros_gps.XaerosGPS;
 
+@SuppressWarnings("removal")
 public class GPSNetwork {
 	private static final String PROTOCOL_VERSION = "1";
 

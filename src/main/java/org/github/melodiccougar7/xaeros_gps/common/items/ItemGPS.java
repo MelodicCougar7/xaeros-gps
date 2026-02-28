@@ -47,7 +47,7 @@ public class ItemGPS extends AbstractEnergyItem implements ICurioItem {
 		if (!level.isClientSide) {
 			boolean currentState = isGPSOn(stack);
 			if (!currentState && isOutOfEnergy(stack)) {
-				player.displayClientMessage(Component.translatable("message.xaeros_gps.no_energy")
+				player.displayClientMessage(Component.translatable("gui.xaero_no_worldmap_gps_out_of_energy_message")
 						.withStyle(ChatFormatting.RED), true);
 			} else {
 				setGPSState(stack, !currentState);
