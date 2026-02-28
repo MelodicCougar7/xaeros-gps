@@ -6,11 +6,11 @@
 
   "overrides": [
     {
-      "predicate": { "mode": 1 },
+      "predicate": { "mode": 1.0 },
       "model": "xaeros_gps:item/gps_b_on"
     },
     {
-      "predicate": { "mode": 2 },
+      "predicate": { "mode": 2.0 },
       "model": "xaeros_gps:item/gps_b_off"
     }
   ]
