@@ -2,15 +2,12 @@
   "gui.xaero_no_worldmap_no_gps_message": "You don't have a GPS equipped ...",
   "gui.xaero_no_worldmap_gps_off_message": "Your GPS is off",
   "gui.xaero_no_worldmap_gps_out_of_energy_message": "Your GPS is out of battery",
-
-  "curios.identifier.gps": "GPS",
-
+  "curios.identifier.gps_slot": "GPS",
+  "itemGroup.xaeros_gps": "GPS",
   "item.xaeros_gps.battery": "Battery",
   "item.xaeros_gps.gps": "GPS",
-
   "key.xaeros_gps.toggle_gps": "Enable GPS",
-  "key.categories.xaeros_gps": "Xaero's GPS",
-
+  "key.categories.xaeros_gps": "GPS",
   "tooltip.xaeros_gps.shift": "Hold [SHIFT] for more information",
   "tooltip.xaeros_gps.gps1": "When powered, allows the player to view satellite imagery of their surroundings.",
   "tooltip.xaeros_gps.gps2": "Recharge with batteries.",

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "xaeros_gps:item/gps_b_off"
+    "layer0": "item/iron_nugget"
   }
 }

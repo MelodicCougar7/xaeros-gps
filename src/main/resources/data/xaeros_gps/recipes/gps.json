@@ -7,7 +7,6 @@
   ],
   "result": {
     "item": "xaeros_gps:gps",
-    "count": 1,
-    "nbt": "{on:false,energy:0}"
+    "count": 1
   }
 }
