@@ -7,6 +7,10 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.SlotAccess;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ClickAction;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -20,6 +24,8 @@ import top.theillusivec4.curios.api.type.capability.ICuriosItemHandler;
 
 import javax.annotation.Nullable;
 import java.util.List;
+
+import static org.github.melodiccougar7.xaeros_gps.registry.ItemRegistry.BATTERY;
 
 public class GPSItem extends Item implements ICurioItem {
 
@@ -54,14 +60,32 @@ public class GPSItem extends Item implements ICurioItem {
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         if (slotContext.entity().level().getGameTime() % 20 == 0) {
+            // failsafe to ensure that tag is created at some point
+            if (!stack.hasTag()) {
+                stack.getOrCreateTag().putInt("energy", 0);
+                stack.getOrCreateTag().putBoolean("on", false);
+            }
             boolean active = stack.getTag().getBoolean("on");
             if (active) {
                 int energy = stack.getTag().getInt("energy");
                 CompoundTag tag = stack.getOrCreateTag();
+                // ensure that this doesn't drop below zero
                 tag.putInt("energy", energy - 1);
             }
         }
     }
+
+    @Override
+    public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack inc, Slot slot, ClickAction action, Player player, SlotAccess access) {
+        if (inc.is(BATTERY.get())) {
+            inc.shrink(1);
+            CompoundTag tag = stack.getOrCreateTag();
+            tag.putInt("energy", 1000);
+            return true;
+        }
+        return false;
+    }
+
     public static void toggleGPS(ServerPlayer player, boolean active) {
         ICuriosItemHandler curiosInventory = CuriosApi.getCuriosInventory(player).resolve().get();
         final ItemStack[] GPS = new ItemStack[1];
@@ -70,18 +94,18 @@ public class GPSItem extends Item implements ICurioItem {
             var stacks = slotInventory.getStacks();
             for (int i = 0; i < stacks.getSlots(); i++) {
                 ItemStack stack = stacks.getStackInSlot(i);
-                if (stack.getItem() == ForgeRegistries.ITEMS.getValue(ResourceLocation.parse("xaeros_gps:gps"))) {
+                if (stack.getItem() == ForgeRegistries.ITEMS.getValue(new ResourceLocation("xaeros_gps:gps"))) {
                     GPS[0] = stack;
                 }
             }
         });
-
-        // cut off toggle if the GPS is out of power
-        if (GPS[0].getTag().getInt("energy") == 0) {
-            CompoundTag tag = GPS[0].getOrCreateTag();
-            tag.putBoolean("on", false);
-            return;
-        }
+// Deprecated to make things easier for the player, and also to show the "GPS out of battery message ever"
+//        // cut off toggle if the GPS is out of power
+//        if (GPS[0].getTag().getInt("energy") == 0) {
+//            CompoundTag tag = GPS[0].getOrCreateTag();
+//            tag.putBoolean("on", false);
+//            return;
+//        }
 
         if (!active) { // active technically means "activate" I suppose
             CompoundTag tag = GPS[0].getOrCreateTag();

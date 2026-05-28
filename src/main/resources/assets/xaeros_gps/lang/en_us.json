@@ -14,5 +14,8 @@
   "tooltip.xaeros_gps.shift": "Hold [SHIFT] for more information",
   "tooltip.xaeros_gps.gps1": "When powered, allows the player to view satellite imagery of their surroundings.",
   "tooltip.xaeros_gps.gps2": "Recharge with batteries.",
-  "tooltip.xaeros_gps.charge": "Charge: "
+  "tooltip.xaeros_gps.charge": "Charge: ",
+
+  "client.xaeros_gps.gps_off": "GPS off",
+  "client.xaeros_gps.gps_on": "GPS on"
 }
