@@ -7,6 +7,7 @@
 
   "item.xaeros_gps.battery": "Battery",
   "item.xaeros_gps.gps": "GPS",
+  "item.xaeros_gps.rechargeable_battery": "Rechargeable Battery",
 
   "key.xaeros_gps.toggle_gps": "Enable GPS",
   "key.categories.xaeros_gps": "Xaero's GPS",
@@ -17,5 +18,7 @@
   "tooltip.xaeros_gps.charge": "Charge: ",
 
   "client.xaeros_gps.gps_off": "GPS off",
-  "client.xaeros_gps.gps_on": "GPS on"
+  "client.xaeros_gps.gps_on": "GPS on",
+
+  "itemGroup.xaeros_gps": "Xaero's GPS"
 }

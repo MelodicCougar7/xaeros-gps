@@ -7,11 +7,6 @@ import xaero.map.gui.GuiMap;
 
 @Mixin(value = GuiMap.class, remap = false)
 public interface renderMessageScreenInvoker {
-
     @Invoker("renderMessageScreen")
     void invokeRenderMessageScreen(GuiGraphics guiGraphics, String message);
-
-    //@Invoker("renderMessageScreen")
-    //void renderMessageScreen(GuiGraphics guiGraphics, String message, String message2);
-
 }

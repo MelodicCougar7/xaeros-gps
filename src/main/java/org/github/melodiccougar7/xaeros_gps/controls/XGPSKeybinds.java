@@ -20,7 +20,7 @@ public class XGPSKeybinds{
 
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
-    LOGGER.info("keybinds registered");
+        LOGGER.info("keybinds registered");
         TOGGLE_GPS = new KeyMapping(
                 "key.xaeros_gps.toggle_gps",
                 InputConstants.Type.KEYSYM,

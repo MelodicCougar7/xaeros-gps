@@ -5,11 +5,9 @@
   },
   "overrides": [
     {
-      "predicate": { "xaeros_gps:off": 1.0 },
-      "model": "xaeros_gps:item/gps_b_off"
-    },
-    {
-      "predicate": { "xaeros_gps:on": 2.0 },
+      "predicate": {
+        "xaeros_gps:on": 1.0
+      },
       "model": "xaeros_gps:item/gps_b_on"
     }
   ]

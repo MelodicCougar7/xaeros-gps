@@ -27,8 +27,7 @@ public class GPSTogglePacket {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
             if (player == null) return;
-
-            GPSItem.toggleGPS(player, msg.active);
+            GPSItem.setGPSOn(player, msg.active);
         });
         ctx.get().setPacketHandled(true);
     }

@@ -16,10 +16,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.github.melodiccougar7.xaeros_gps.controls.ClientEvents;
 import org.github.melodiccougar7.xaeros_gps.network.XGPSNetwork;
+import org.github.melodiccougar7.xaeros_gps.registry.ItemRegistry;
 import org.slf4j.Logger;
 
 import static org.github.melodiccougar7.xaeros_gps.registry.ItemRegistry.GPS;
-import static org.github.melodiccougar7.xaeros_gps.registry.ItemRegistry.ITEMS;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(XaerosGPS.MODID)
@@ -35,7 +35,8 @@ public class XaerosGPS {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(ClientEvents.class);
-        ITEMS.register(modEventBus);
+        ItemRegistry.ITEMS.register(modEventBus);
+        ItemRegistry.CREATIVE_TABS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

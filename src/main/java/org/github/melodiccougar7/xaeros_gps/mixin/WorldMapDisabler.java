@@ -17,20 +17,13 @@ import xaero.map.gui.GuiMap;
 
 @Mixin(value = GuiMap.class, remap = false)
 public abstract class WorldMapDisabler {
-
-    //m_88315_(Lnet/minecraft/client/gui/GuiGraphics;IIF)V
-    //render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V
-    @Inject(method = "m_88315_(Lnet/minecraft/client/gui/GuiGraphics;IIF)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V", at = @At("HEAD"), cancellable = true)
     private void onRender(GuiGraphics guiGraphics, int scaledMouseX, int scaledMouseY, float partialTicks, CallbackInfo ci) {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
         ICuriosItemHandler curiosInventory = CuriosApi.getCuriosInventory(player).resolve().get();
-//        AtomicBoolean isGPSPresent = new AtomicBoolean(false); //
-//        isGPSPresent.set(player.getInventory().items.contains("xaeros_gps:gps"));
         final ItemStack[] GPS = new ItemStack[1];
-
         curiosInventory.getStacksHandler("gps").ifPresent(slotInventory -> {
-            //isGPSPresent.set(true); // won't ever set isGPSPresent to false, we'll see how this works out
             var stacks = slotInventory.getStacks();
             for (int i = 0; i < stacks.getSlots(); i++) {
                 ItemStack stack = stacks.getStackInSlot(i);
